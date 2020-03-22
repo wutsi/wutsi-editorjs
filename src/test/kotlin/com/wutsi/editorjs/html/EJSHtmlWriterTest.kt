@@ -8,6 +8,7 @@ import com.wutsi.editorjs.dom.File
 import org.apache.commons.io.IOUtils
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.io.StringWriter
 
 class EJSHtmlWriterTest {
 
@@ -16,11 +17,13 @@ class EJSHtmlWriterTest {
         val doc = createDocument()
         val expected = loadResourceAsString("/writer.html")
 
+        val sw = StringWriter()
         val writer = EJSHtmlWriter()
-        val result = writer.write(doc)
-        System.out.println(result)
+        writer.write(doc, sw)
 
-        assertEquals(expected, result)
+        System.out.println(sw.toString())
+
+        assertEquals(expected, sw.toString())
     }
 
     private fun loadResourceAsString(path: String): String {
