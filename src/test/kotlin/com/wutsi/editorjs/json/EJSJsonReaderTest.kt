@@ -1,4 +1,4 @@
-package com.wutsi.editorjs.html
+package com.wutsi.editorjs.json
 
 import com.wutsi.editorjs.ResourceHelper.loadResourceAsString
 import com.wutsi.editorjs.dom.BlockType
@@ -7,12 +7,12 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class EJSHtmlReaderTest {
+class EJSJsonReaderTest {
     @Test
     fun read() {
-        val html = loadResourceAsString("/reader.html")
-        val reader = EJSHtmlReader()
-        val doc = reader.read(html)
+        val json = loadResourceAsString("/reader.json")
+        val reader = EJSJsonReader()
+        val doc = reader.read(json)
 
         assertEquals(6, doc.blocks.size)
 
