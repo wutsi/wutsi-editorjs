@@ -7,6 +7,7 @@ enum class BlockType {
     header,
     image,
     list,
-    paragraph
+    paragraph,
+    quote
 }
 

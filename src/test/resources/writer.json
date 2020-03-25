@@ -17,7 +17,8 @@
       "withBorder" : false,
       "stretched" : false,
       "withBackground" : false,
-      "code" : ""
+      "code" : "",
+      "alignment" : ""
     }
   }, {
     "type" : "paragraph",
@@ -35,7 +36,8 @@
       "withBorder" : false,
       "stretched" : false,
       "withBackground" : false,
-      "code" : ""
+      "code" : "",
+      "alignment" : ""
     }
   }, {
     "type" : "list",
@@ -53,7 +55,8 @@
       "withBorder" : false,
       "stretched" : false,
       "withBackground" : false,
-      "code" : ""
+      "code" : "",
+      "alignment" : ""
     }
   }, {
     "type" : "divider",
@@ -71,7 +74,8 @@
       "withBorder" : false,
       "stretched" : false,
       "withBackground" : false,
-      "code" : ""
+      "code" : "",
+      "alignment" : ""
     }
   }, {
     "type" : "image",
@@ -89,7 +93,8 @@
       "withBorder" : true,
       "stretched" : true,
       "withBackground" : true,
-      "code" : ""
+      "code" : "",
+      "alignment" : ""
     }
   }, {
     "type" : "code",
@@ -107,7 +112,8 @@
       "withBorder" : false,
       "stretched" : false,
       "withBackground" : false,
-      "code" : "class Foo { }"
+      "code" : "class Foo { }",
+      "alignment" : ""
     }
   } ]
 }

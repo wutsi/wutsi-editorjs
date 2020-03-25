@@ -14,5 +14,7 @@ data class BlockData (
         var stretched: Boolean = false,
         var withBackground: Boolean = false,
 
-        var code: String = ""
+        var code: String = "",
+
+        var alignment: String = ""
 )
