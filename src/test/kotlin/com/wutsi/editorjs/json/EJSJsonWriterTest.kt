@@ -5,7 +5,6 @@ import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.EJSDocument
-import com.wutsi.editorjs.dom.File
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.StringWriter
@@ -57,11 +56,7 @@ class EJSJsonWriterTest {
                     Block(
                             type = BlockType.image,
                             data = BlockData(
-                                    file = File(
-                                            url = "/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg",
-                                            width = 512,
-                                            height = 512
-                                    ),
+                                    url = "/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg",
                                     caption = "Logo",
                                     withBackground = true,
                                     withBorder = true,

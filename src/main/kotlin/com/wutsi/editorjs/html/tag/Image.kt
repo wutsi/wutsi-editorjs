@@ -3,7 +3,6 @@ package com.wutsi.editorjs.html.tag
 import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
-import com.wutsi.editorjs.dom.File
 import org.jsoup.nodes.Element
 import java.io.StringWriter
 
@@ -22,9 +21,7 @@ class Image: Tag {
     private fun readImage(elt: Element) = Block(
             type = BlockType.image,
             data = BlockData(
-                    file = File(
-                            url = elt.attr("src")
-                    ),
+                    url = elt.attr("src"),
                     caption = elt.attr("alt"),
                     withBorder = elt.hasClass("border"),
                     withBackground = elt.hasClass("background"),
@@ -38,9 +35,7 @@ class Image: Tag {
         return Block(
                 type = BlockType.image,
                 data = BlockData(
-                        file = File(
-                                url = if (img == null) "" else img.attr("src")
-                        ),
+                        url = if (img == null) "" else img.attr("src"),
                         caption = if (caption == null) "" else caption.text(),
                         withBorder = if (img == null) false else img.hasClass("border"),
                         withBackground = if (img == null) false else img.hasClass("background"),
@@ -50,7 +45,7 @@ class Image: Tag {
     }
 
     private fun exportImg(block: Block, writer: StringWriter) {
-        val url = block.data.file.url
+        val url = block.data.url
 
         writer.write("<img src='$url'")
 

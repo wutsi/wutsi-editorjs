@@ -33,7 +33,7 @@ class EJSHtmlReaderTest {
         assertEquals(BlockType.divider, doc.blocks[3].type)
 
         assertEquals(BlockType.image, doc.blocks[4].type)
-        assertEquals("/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg", doc.blocks[4].data.file.url)
+        assertEquals("/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg", doc.blocks[4].data.url)
         assertEquals("Logo", doc.blocks[4].data.caption)
         assertTrue(doc.blocks[4].data.withBackground)
         assertTrue(doc.blocks[4].data.withBorder)

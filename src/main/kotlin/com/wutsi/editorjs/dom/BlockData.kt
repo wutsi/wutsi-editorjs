@@ -8,7 +8,7 @@ data class BlockData (
         var items: List<String> = emptyList(),
         var style: ListStyle = ListStyle.unordered,
 
-        var file: File = File(),
+        var url: String = "",
         var caption: String = "",
         var withBorder: Boolean = false,
         var stretched: Boolean = false,

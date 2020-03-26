@@ -3,7 +3,6 @@ package com.wutsi.editorjs.html.tag
 import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
-import com.wutsi.editorjs.dom.File
 import org.jsoup.nodes.Element
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -80,7 +79,7 @@ class ImageTest {
         val block = tag.read(elt)
 
         assertEquals(BlockType.image, block.type)
-        assertEquals("http://www.google.com/1.png", block.data.file.url)
+        assertEquals("http://www.google.com/1.png", block.data.url)
         assertEquals("test", block.data.caption)
         assertTrue(block.data.withBackground)
         assertTrue(block.data.withBackground)
@@ -93,7 +92,7 @@ class ImageTest {
         val block = tag.read(elt)
 
         assertEquals(BlockType.image, block.type)
-        assertEquals("http://www.google.com/1.png", block.data.file.url)
+        assertEquals("http://www.google.com/1.png", block.data.url)
         assertEquals("test", block.data.caption)
         assertTrue(block.data.withBackground)
         assertTrue(block.data.withBackground)
@@ -109,7 +108,7 @@ class ImageTest {
     ) = Block(
             type = BlockType.image,
             data = BlockData(
-                    file = File(url=url),
+                    url=url,
                     caption = caption,
                     stretched = stretched,
                     withBorder = border,

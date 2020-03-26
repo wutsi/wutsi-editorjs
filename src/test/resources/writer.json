@@ -8,11 +8,7 @@
       "level" : 1,
       "items" : [ ],
       "style" : "unordered",
-      "file" : {
-        "url" : "",
-        "width" : -1,
-        "height" : -1
-      },
+      "url" : "",
       "caption" : "",
       "withBorder" : false,
       "stretched" : false,
@@ -27,11 +23,7 @@
       "level" : 1,
       "items" : [ ],
       "style" : "unordered",
-      "file" : {
-        "url" : "",
-        "width" : -1,
-        "height" : -1
-      },
+      "url" : "",
       "caption" : "",
       "withBorder" : false,
       "stretched" : false,
@@ -46,11 +38,7 @@
       "level" : 1,
       "items" : [ "It is a block-styled editor", "It returns clean data output in JSON", "Designed to be extendable and pluggable with a simple API" ],
       "style" : "unordered",
-      "file" : {
-        "url" : "",
-        "width" : -1,
-        "height" : -1
-      },
+      "url" : "",
       "caption" : "",
       "withBorder" : false,
       "stretched" : false,
@@ -65,11 +53,7 @@
       "level" : 1,
       "items" : [ ],
       "style" : "unordered",
-      "file" : {
-        "url" : "",
-        "width" : -1,
-        "height" : -1
-      },
+      "url" : "",
       "caption" : "",
       "withBorder" : false,
       "stretched" : false,
@@ -84,11 +68,7 @@
       "level" : 1,
       "items" : [ ],
       "style" : "unordered",
-      "file" : {
-        "url" : "/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg",
-        "width" : 512,
-        "height" : 512
-      },
+      "url" : "/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg",
       "caption" : "Logo",
       "withBorder" : true,
       "stretched" : true,
@@ -103,11 +83,7 @@
       "level" : 1,
       "items" : [ ],
       "style" : "unordered",
-      "file" : {
-        "url" : "",
-        "width" : -1,
-        "height" : -1
-      },
+      "url" : "",
       "caption" : "",
       "withBorder" : false,
       "stretched" : false,
