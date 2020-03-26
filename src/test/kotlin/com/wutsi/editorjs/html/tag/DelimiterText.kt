@@ -7,9 +7,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.StringWriter
 
-class DividerText {
+class DelimiterText {
 
-    val tag = Divider()
+    val tag = Delimiter()
 
     @Test
     fun write() {
@@ -26,11 +26,11 @@ class DividerText {
         val elt = createElement()
         val block = tag.read(elt)
 
-        assertEquals(BlockType.divider, block.type)
+        assertEquals(BlockType.delimiter, block.type)
     }
 
     private fun createBlock() = Block(
-            type = BlockType.divider
+            type = BlockType.delimiter
     )
 
     private fun createElement() = Element("hr")

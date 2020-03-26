@@ -47,7 +47,7 @@
       "alignment" : ""
     }
   }, {
-    "type" : "divider",
+    "type" : "delimiter",
     "data" : {
       "text" : "",
       "level" : 1,

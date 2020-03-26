@@ -51,7 +51,7 @@ class EJSJsonWriterTest {
                             )
                     ),
                     Block(
-                            type = BlockType.divider
+                            type = BlockType.delimiter
                     ),
                     Block(
                             type = BlockType.image,

@@ -30,7 +30,7 @@ class EJSHtmlReaderTest {
         assertEquals("It returns clean data output in JSON", doc.blocks[2].data.items[1])
         assertEquals("Designed to be extendable and pluggable with a simple API", doc.blocks[2].data.items[2])
 
-        assertEquals(BlockType.divider, doc.blocks[3].type)
+        assertEquals(BlockType.delimiter, doc.blocks[3].type)
 
         assertEquals(BlockType.image, doc.blocks[4].type)
         assertEquals("/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg", doc.blocks[4].data.url)

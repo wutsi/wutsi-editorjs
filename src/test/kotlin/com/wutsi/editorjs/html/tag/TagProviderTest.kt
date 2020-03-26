@@ -17,7 +17,7 @@ class TagProviderTest {
     @Test
     fun get() {
         assertTrue(provider.get(BlockType.code) is Code)
-        assertTrue(provider.get(BlockType.divider) is Divider)
+        assertTrue(provider.get(BlockType.delimiter) is Delimiter)
         assertTrue(provider.get(BlockType.header) is Header)
         assertTrue(provider.get(BlockType.image) is Image)
         assertTrue(provider.get(BlockType.list) is List)

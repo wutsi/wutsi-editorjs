@@ -3,7 +3,7 @@ package com.wutsi.editorjs.dom
 
 enum class BlockType {
     code,
-    divider,
+    delimiter,
     header,
     image,
     list,
