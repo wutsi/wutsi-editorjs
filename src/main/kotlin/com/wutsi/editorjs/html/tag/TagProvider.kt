@@ -16,6 +16,7 @@ class TagProvider {
 
     private val tagsByName = mapOf(
             "code" to Code(),
+            "pre" to Code(),
             "hr" to Delimiter(),
             "h1" to Header(),
             "h2" to Header(),

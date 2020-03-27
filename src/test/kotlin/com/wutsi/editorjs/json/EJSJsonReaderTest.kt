@@ -1,5 +1,6 @@
 package com.wutsi.editorjs.json
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.wutsi.editorjs.ResourceHelper.loadResourceAsString
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.ListStyle
@@ -11,7 +12,7 @@ class EJSJsonReaderTest {
     @Test
     fun read() {
         val json = loadResourceAsString("/reader.json")
-        val reader = EJSJsonReader()
+        val reader = EJSJsonReader(ObjectMapper())
         val doc = reader.read(json)
 
         assertEquals(6, doc.blocks.size)

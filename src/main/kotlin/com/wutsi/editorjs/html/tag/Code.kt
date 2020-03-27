@@ -9,7 +9,7 @@ import java.io.StringWriter
 class Code: Tag {
     override fun write (block: Block, writer: StringWriter) {
         val code = block.data.code
-        writer.write("<code>$code</code>\n")
+        writer.write("<pre class='prettyprint'>$code</pre>\n")
     }
 
     override fun read(elt: Element) = Block(

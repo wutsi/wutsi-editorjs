@@ -3,6 +3,7 @@ package com.wutsi.editorjs.html
 import com.wutsi.editorjs.ResourceHelper.loadResourceAsString
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.ListStyle
+import com.wutsi.editorjs.html.tag.TagProvider
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -11,7 +12,7 @@ class EJSHtmlReaderTest {
     @Test
     fun read() {
         val html = loadResourceAsString("/reader.html")
-        val reader = EJSHtmlReader()
+        val reader = EJSHtmlReader(TagProvider())
         val doc = reader.read(html)
 
         assertEquals(6, doc.blocks.size)

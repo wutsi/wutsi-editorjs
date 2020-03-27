@@ -4,7 +4,7 @@ import com.wutsi.editorjs.dom.EJSDocument
 import com.wutsi.editorjs.html.tag.TagProvider
 import org.jsoup.Jsoup
 
-class EJSHtmlReader(private val provider: TagProvider = TagProvider()) {
+class EJSHtmlReader(private val provider: TagProvider) {
     fun read (html: String): EJSDocument {
         val html = Jsoup.parse(html)
         val ejs = EJSDocument()

@@ -19,7 +19,7 @@ class CodeTest {
 
         tag.write(block, writer)
 
-        assertEquals("<code>Hello world</code>\n", writer.toString())
+        assertEquals("<pre class='prettyprint'>Hello world</pre>\n", writer.toString())
     }
 
     @Test

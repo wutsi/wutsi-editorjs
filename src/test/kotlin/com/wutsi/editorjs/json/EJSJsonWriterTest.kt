@@ -1,5 +1,6 @@
 package com.wutsi.editorjs.json
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.wutsi.editorjs.ResourceHelper
 import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
@@ -17,7 +18,7 @@ class EJSJsonWriterTest {
         val expected = ResourceHelper.loadResourceAsString("/writer.json")
 
         val sw = StringWriter()
-        val writer = EJSJsonWriter()
+        val writer = EJSJsonWriter(ObjectMapper())
         writer.write(doc, sw)
 
         System.out.println(sw.toString())

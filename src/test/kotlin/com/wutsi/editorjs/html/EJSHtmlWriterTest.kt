@@ -5,6 +5,7 @@ import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.EJSDocument
+import com.wutsi.editorjs.html.tag.TagProvider
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.StringWriter
@@ -17,7 +18,7 @@ class EJSHtmlWriterTest {
         val expected = loadResourceAsString("/writer.html")
 
         val sw = StringWriter()
-        val writer = EJSHtmlWriter()
+        val writer = EJSHtmlWriter(TagProvider())
         writer.write(doc, sw)
 
         System.out.println(sw.toString())
