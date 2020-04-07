@@ -19,7 +19,7 @@ class List: Tag {
             type = BlockType.list,
             data = BlockData(
                     style = if ("ol" == elt.tagName().toLowerCase()) ListStyle.ordered else ListStyle.unordered,
-                    items = elt.children().map { it.text() }
+                    items = elt.children().map { it.html() }
             )
     )
 }

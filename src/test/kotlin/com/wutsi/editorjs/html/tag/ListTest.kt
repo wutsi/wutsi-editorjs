@@ -4,6 +4,7 @@ import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.ListStyle
+import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -34,6 +35,16 @@ class ListTest {
     }
 
     @Test
+    fun writeWithStyle() {
+        val block = createBlock(listOf("Hello", "wor<b>ld</b>"), ListStyle.ordered)
+        val writer = StringWriter()
+
+        tag.write(block, writer)
+
+        assertEquals("<ol><li>Hello</li><li>wor<b>ld</b></li></ol>\n", writer.toString())
+    }
+
+    @Test
     fun readUL () {
         val elt = createElement("ul", listOf("Hello", "world"))
         val block = tag.read(elt)
@@ -56,6 +67,19 @@ class ListTest {
         assertEquals("Hello", block.data.items[0])
         assertEquals("world", block.data.items[1])
     }
+
+    @Test
+    fun readStyle () {
+        val elt = createElement("ol", listOf("Hello", "wor<b>ld</b>"))
+        val block = tag.read(elt)
+
+        assertEquals(BlockType.list, block.type)
+        assertEquals(2, block.data.items.size)
+        assertEquals(ListStyle.ordered, block.data.style)
+        assertEquals("Hello", block.data.items[0])
+        assertEquals("wor<b>ld</b>", block.data.items[1])
+    }
+
     private fun createBlock(items: kotlin.collections.List<String>, style: ListStyle) = Block(
             type = BlockType.list,
             data = BlockData(
@@ -68,8 +92,9 @@ class ListTest {
         val elt = Element(tag)
         items.forEach { 
             val li = Element("li")
-            li.text(it)
-            
+            val html = Jsoup.parse(it).body().html()
+            li.html(html)
+
             elt.appendChild(li)
         }
         return elt
