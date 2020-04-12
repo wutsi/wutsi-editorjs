@@ -14,13 +14,13 @@ class Quote: Tag {
     }
 
     override fun read(elt: Element): Block {
-        val p = elt.children().first { it.tagName().toLowerCase() == "p" }
-        val footer = elt.children().first { it.tagName().toLowerCase() == "footer" }
+        val p = elt.children().filter { it.tagName().toLowerCase() == "p" }
+        val footer = elt.children().filter { it.tagName().toLowerCase() == "footer" }
         return Block(
                 type = BlockType.quote,
                 data = BlockData(
-                        text = if (p == null) "" else p.text(),
-                        caption = if (footer == null) "" else footer.text()
+                        text = if (p.isEmpty()) "" else p[0].text(),
+                        caption = if (footer.isEmpty()) "" else footer[0].text()
                 )
         )
     }

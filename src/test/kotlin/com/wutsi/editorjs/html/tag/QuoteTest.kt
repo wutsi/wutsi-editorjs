@@ -32,6 +32,16 @@ class QuoteTest {
         assertEquals("man", block.data.caption)
     }
 
+    @Test
+    fun readNoFooter() {
+        val elt = createElement("yo", "")
+        val block = tag.read(elt)
+
+        assertEquals(BlockType.quote, block.type)
+        assertEquals("yo", block.data.text)
+        assertEquals("", block.data.caption)
+    }
+
     private fun createBlock(text: String, caption: String) = Block(
             type = BlockType.code,
             data = BlockData(
@@ -42,8 +52,12 @@ class QuoteTest {
 
     private fun createElement(text: String, caption: String): Element {
         val elt = Element("blockquote")
-        elt.appendChild(Element("p").text(text))
-        elt.appendChild(Element("footer").text(caption))
+        if (text.isNotEmpty()) {
+            elt.appendChild(Element("p").text(text))
+        }
+        if (caption.isNotEmpty()) {
+            elt.appendChild(Element("footer").text(caption))
+        }
         return elt
     }
 }
