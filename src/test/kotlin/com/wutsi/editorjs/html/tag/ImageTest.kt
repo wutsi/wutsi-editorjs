@@ -3,6 +3,7 @@ package com.wutsi.editorjs.html.tag
 import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
+import com.wutsi.editorjs.dom.File
 import org.jsoup.nodes.Element
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -20,7 +21,7 @@ class ImageTest {
 
         tag.write(block, writer)
 
-        assertEquals("<figure><img src='http://www.img.com/1.png' /></figure>\n", writer.toString())
+        assertEquals("<figure><img src='http://www.img.com/1.png' width=100 height=80 /></figure>\n", writer.toString())
     }
 
     @Test
@@ -30,7 +31,7 @@ class ImageTest {
 
         tag.write(block, writer)
 
-        assertEquals("<figure><img src='http://www.img.com/1.png' alt='foo' /><figcaption>foo</figcaption></figure>\n", writer.toString())
+        assertEquals("<figure><img src='http://www.img.com/1.png' alt='foo' width=100 height=80 /><figcaption>foo</figcaption></figure>\n", writer.toString())
     }
 
     @Test
@@ -40,7 +41,17 @@ class ImageTest {
 
         tag.write(block, writer)
 
-        assertEquals("<figure><img src='http://www.img.com/1.png' class='border' /></figure>\n", writer.toString())
+        assertEquals("<figure><img src='http://www.img.com/1.png' class='border' width=100 height=80 /></figure>\n", writer.toString())
+    }
+
+    @Test
+    fun writeNoDimensions() {
+        val block = createBlock(url="http://www.img.com/1.png", width=-1, height=-1)
+        val writer = StringWriter()
+
+        tag.write(block, writer)
+
+        assertEquals("<figure><img src='http://www.img.com/1.png' /></figure>\n", writer.toString())
     }
 
     @Test
@@ -50,7 +61,7 @@ class ImageTest {
 
         tag.write(block, writer)
 
-        assertEquals("<figure><img src='http://www.img.com/1.png' class='background' /></figure>\n", writer.toString())
+        assertEquals("<figure><img src='http://www.img.com/1.png' class='background' width=100 height=80 /></figure>\n", writer.toString())
     }
 
     @Test
@@ -60,7 +71,7 @@ class ImageTest {
 
         tag.write(block, writer)
 
-        assertEquals("<figure><img src='http://www.img.com/1.png' class='stretched' /></figure>\n", writer.toString())
+        assertEquals("<figure><img src='http://www.img.com/1.png' class='stretched' width=100 height=80 /></figure>\n", writer.toString())
     }
 
     @Test
@@ -70,16 +81,18 @@ class ImageTest {
 
         tag.write(block, writer)
 
-        assertEquals("<figure><img src='http://www.img.com/1.png' alt='foo' class='stretched border background' /><figcaption>foo</figcaption></figure>\n", writer.toString())
+        assertEquals("<figure><img src='http://www.img.com/1.png' alt='foo' class='stretched border background' width=100 height=80 /><figcaption>foo</figcaption></figure>\n", writer.toString())
     }
 
     @Test
     fun readIMG() {
-        val elt = createIMGElement("http://www.google.com/1.png", "test")
+        val elt = createIMGElement("http://www.google.com/1.png", "test", 111, 333)
         val block = tag.read(elt)
 
         assertEquals(BlockType.image, block.type)
-        assertEquals("http://www.google.com/1.png", block.data.url)
+        assertEquals("http://www.google.com/1.png", block.data.file.url)
+        assertEquals(111, block.data.file.width)
+        assertEquals(333, block.data.file.height)
         assertEquals("test", block.data.caption)
         assertTrue(block.data.withBackground)
         assertTrue(block.data.withBackground)
@@ -92,7 +105,7 @@ class ImageTest {
         val block = tag.read(elt)
 
         assertEquals(BlockType.image, block.type)
-        assertEquals("http://www.google.com/1.png", block.data.url)
+        assertEquals("http://www.google.com/1.png", block.data.file.url)
         assertEquals("test", block.data.caption)
         assertTrue(block.data.withBackground)
         assertTrue(block.data.withBackground)
@@ -104,23 +117,31 @@ class ImageTest {
             caption: String="",
             stretched: Boolean=false,
             background: Boolean=false,
-            border: Boolean=false
+            border: Boolean=false,
+            width: Int = 100,
+            height: Int = 80
     ) = Block(
             type = BlockType.image,
             data = BlockData(
-                    url=url,
                     caption = caption,
                     stretched = stretched,
                     withBorder = border,
-                    withBackground = background
+                    withBackground = background,
+                    file = File(
+                            url = url,
+                            width = width,
+                            height = height
+                    )
             )
     )
 
 
-    private fun createIMGElement(url: String, alt: String): Element {
+    private fun createIMGElement(url: String, alt: String, width: Int = -1, height:Int = -1): Element {
         val elt = Element("img")
         elt.attr("src", url)
         elt.attr("alt", alt)
+        elt.attr("width", width.toString())
+        elt.attr("height", height.toString())
         elt.addClass("stretched")
         elt.addClass("background")
         elt.addClass("border")

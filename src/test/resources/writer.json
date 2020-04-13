@@ -14,7 +14,12 @@
       "stretched" : false,
       "withBackground" : false,
       "code" : "",
-      "alignment" : ""
+      "alignment" : "",
+      "file" : {
+        "url" : "",
+        "width" : -1,
+        "height" : -1
+      }
     }
   }, {
     "type" : "paragraph",
@@ -29,7 +34,12 @@
       "stretched" : false,
       "withBackground" : false,
       "code" : "",
-      "alignment" : ""
+      "alignment" : "",
+      "file" : {
+        "url" : "",
+        "width" : -1,
+        "height" : -1
+      }
     }
   }, {
     "type" : "list",
@@ -44,7 +54,12 @@
       "stretched" : false,
       "withBackground" : false,
       "code" : "",
-      "alignment" : ""
+      "alignment" : "",
+      "file" : {
+        "url" : "",
+        "width" : -1,
+        "height" : -1
+      }
     }
   }, {
     "type" : "delimiter",
@@ -59,7 +74,12 @@
       "stretched" : false,
       "withBackground" : false,
       "code" : "",
-      "alignment" : ""
+      "alignment" : "",
+      "file" : {
+        "url" : "",
+        "width" : -1,
+        "height" : -1
+      }
     }
   }, {
     "type" : "image",
@@ -68,13 +88,18 @@
       "level" : 1,
       "items" : [ ],
       "style" : "unordered",
-      "url" : "/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg",
+      "url" : "",
       "caption" : "Logo",
       "withBorder" : true,
       "stretched" : true,
       "withBackground" : true,
       "code" : "",
-      "alignment" : ""
+      "alignment" : "",
+      "file" : {
+        "url" : "/upload/temporary/o_488cfb382712d6af914301c73f376e8c.jpg",
+        "width" : -1,
+        "height" : -1
+      }
     }
   }, {
     "type" : "code",
@@ -89,7 +114,12 @@
       "stretched" : false,
       "withBackground" : false,
       "code" : "class Foo { }",
-      "alignment" : ""
+      "alignment" : "",
+      "file" : {
+        "url" : "",
+        "width" : -1,
+        "height" : -1
+      }
     }
   } ]
 }

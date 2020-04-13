@@ -3,6 +3,7 @@ package com.wutsi.editorjs.html.tag
 import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
+import com.wutsi.editorjs.dom.File
 import org.jsoup.nodes.Element
 import java.io.StringWriter
 
@@ -21,13 +22,25 @@ class Image: Tag {
     private fun readImage(elt: Element) = Block(
             type = BlockType.image,
             data = BlockData(
-                    url = elt.attr("src"),
                     caption = elt.attr("alt"),
                     withBorder = elt.hasClass("border"),
                     withBackground = elt.hasClass("background"),
-                    stretched = elt.hasClass("stretched")
+                    stretched = elt.hasClass("stretched"),
+                    file = File(
+                            url = elt.attr("src"),
+                            width = intAttr(elt, "width"),
+                            height = intAttr(elt, "height")
+                    )
             )
     )
+
+    private fun intAttr(elt: Element, name: String): Int {
+        try {
+            return elt.attr(name).toInt()
+        } catch (ex: Exception){
+            return -1
+        }
+    }
 
     private fun readFigure(elt: Element): Block {
         val img = elt.allElements.find { it.tagName().toLowerCase() == "img" }
@@ -35,22 +48,25 @@ class Image: Tag {
         return Block(
                 type = BlockType.image,
                 data = BlockData(
-                        url = if (img == null) "" else img.attr("src"),
                         caption = if (caption == null) "" else caption.text(),
                         withBorder = if (img == null) false else img.hasClass("border"),
                         withBackground = if (img == null) false else img.hasClass("background"),
-                        stretched = if (img == null) false else img.hasClass("stretched")
+                        stretched = if (img == null) false else img.hasClass("stretched"),
+                        file = File(
+                                url = if (img == null) "" else img.attr("src")
+                        )
                 )
         )
     }
 
     private fun exportImg(block: Block, writer: StringWriter) {
-        val url = block.data.url
+        val url = block.data.file.url
 
         writer.write("<img src='$url'")
 
         writeAlt(block, writer)
         writeClass(block, writer)
+        writeDimension(block, writer)
 
         writer.write(" />")
     }
@@ -76,6 +92,17 @@ class Image: Tag {
         val alt = block.data.caption
         if (alt.isNotBlank()) {
             writer.write(" alt='$alt'")
+        }
+    }
+
+    private fun writeDimension(block: Block, wirter: StringWriter) {
+        val width = block.data.file.width
+        val height = block.data.file.height
+        if (width > 0){
+            wirter.write(" width=$width")
+        }
+        if (height > 0){
+            wirter.write(" height=$height")
         }
     }
 

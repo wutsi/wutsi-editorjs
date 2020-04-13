@@ -15,6 +15,7 @@ data class BlockData (
         var withBackground: Boolean = false,
 
         var code: String = "",
+        var alignment: String = "",
 
-        var alignment: String = ""
+        var file: File = File()
 )
