@@ -19,9 +19,27 @@ class Image: Tag {
         return if ("figure" == elt.tagName().toLowerCase()) readFigure(elt) else readImage(elt)
     }
 
+    private fun readFigure(elt: Element): Block {
+        val img = elt.allElements.find { it.tagName().toLowerCase() == "img" }
+        val caption = elt.allElements.find { it.tagName().toLowerCase() == "figcaption" }
+        if (img != null) {
+            val block = readImage(img)
+            block.data.caption = if (caption == null) "" else caption.text()
+            return block
+        } else {
+            return Block(
+                    type = BlockType.image,
+                    data = BlockData(
+                            caption = if (caption == null) "" else caption.text()
+                    )
+            )
+        }
+    }
+
     private fun readImage(elt: Element) = Block(
             type = BlockType.image,
             data = BlockData(
+                    url = elt.attr("src"),
                     caption = elt.attr("alt"),
                     withBorder = elt.hasClass("border"),
                     withBackground = elt.hasClass("background"),
@@ -42,25 +60,12 @@ class Image: Tag {
         }
     }
 
-    private fun readFigure(elt: Element): Block {
-        val img = elt.allElements.find { it.tagName().toLowerCase() == "img" }
-        val caption = elt.allElements.find { it.tagName().toLowerCase() == "figcaption" }
-        return Block(
-                type = BlockType.image,
-                data = BlockData(
-                        caption = if (caption == null) "" else caption.text(),
-                        withBorder = if (img == null) false else img.hasClass("border"),
-                        withBackground = if (img == null) false else img.hasClass("background"),
-                        stretched = if (img == null) false else img.hasClass("stretched"),
-                        file = File(
-                                url = if (img == null) "" else img.attr("src")
-                        )
-                )
-        )
-    }
 
     private fun exportImg(block: Block, writer: StringWriter) {
-        val url = block.data.file.url
+        var url = block.data.file.url   // ImageTool
+        if (url.isEmpty()){
+            url = block.data.url    // Fallback to SimpleImageTool
+        }
 
         writer.write("<img src='$url'")
 

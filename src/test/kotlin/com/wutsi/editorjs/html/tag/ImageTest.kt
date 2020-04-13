@@ -15,6 +15,19 @@ class ImageTest {
     val tag = Image()
 
     @Test
+    fun writeSimpleImage() {
+        val block = createBlock("http://www.img.com/1.png", width=-1, height = -1)
+        block.data.url = block.data.file.url
+        block.data.file.url = ""
+        val writer = StringWriter()
+
+        tag.write(block, writer)
+
+        assertEquals("<figure><img src='http://www.img.com/1.png' /></figure>\n", writer.toString())
+    }
+
+
+    @Test
     fun writeUrl() {
         val block = createBlock("http://www.img.com/1.png")
         val writer = StringWriter()
@@ -90,6 +103,7 @@ class ImageTest {
         val block = tag.read(elt)
 
         assertEquals(BlockType.image, block.type)
+        assertEquals("http://www.google.com/1.png", block.data.url)
         assertEquals("http://www.google.com/1.png", block.data.file.url)
         assertEquals(111, block.data.file.width)
         assertEquals(333, block.data.file.height)
@@ -105,6 +119,7 @@ class ImageTest {
         val block = tag.read(elt)
 
         assertEquals(BlockType.image, block.type)
+        assertEquals("http://www.google.com/1.png", block.data.url)
         assertEquals("http://www.google.com/1.png", block.data.file.url)
         assertEquals("test", block.data.caption)
         assertTrue(block.data.withBackground)
