@@ -14,9 +14,9 @@ object TextUtils {
         val toks = StringTokenizer(text, delimiters)
         val result = mutableListOf<String>()
         while (toks.hasMoreTokens()){
-            result.add(toks.nextToken())
+            result.add(toks.nextToken().trim())
         }
-        return result
+        return result.filter { it.isNotEmpty() }
 
     }
 }
