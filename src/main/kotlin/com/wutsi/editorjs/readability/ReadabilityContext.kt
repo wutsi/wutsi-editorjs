@@ -6,6 +6,6 @@ import com.wutsi.editorjs.html.tag.TagProvider
 data class ReadabilityContext (
         val maxSentencesPerParagraph: Int = 5,
         val maxWordsPerSentence: Int = 25,
-        val minParagraphsPerDocument: Int = 1,
+        val minParagraphsPerDocument: Int = 3,
         val htmlWriter: EJSHtmlWriter = EJSHtmlWriter(TagProvider())
 )
