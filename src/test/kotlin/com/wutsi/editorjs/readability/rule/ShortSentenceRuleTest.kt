@@ -51,8 +51,9 @@ class ShortSentenceRuleTest {
         val doc = createDocument(arrayListOf( ))
         val result = rule.validate(doc, context)
 
-        Assert.assertEquals(100, result.score)
+        Assert.assertEquals(0, result.score)
     }
+
     private fun createDocument(paragraphs: List<String>) = EJSDocument(
             blocks = paragraphs.map {
                 Block(

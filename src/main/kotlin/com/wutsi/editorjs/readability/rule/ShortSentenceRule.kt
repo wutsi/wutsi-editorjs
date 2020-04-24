@@ -12,7 +12,7 @@ class ShortSentenceRule: AbstractRule() {
     override fun validate(doc: EJSDocument, context: ReadabilityContext): RuleResult {
         val sentences = getAllSentences(doc)
         if (sentences.isEmpty()){
-            return result(true)
+            return result(false)
         }
 
         val xsentences = getLongSentences(sentences, context)

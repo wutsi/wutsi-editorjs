@@ -12,7 +12,7 @@ class ShortParagraphRule: AbstractRule() {
     override fun validate(doc: EJSDocument, context: ReadabilityContext): RuleResult {
         val paragraphs = getAllParagraphs(doc)
         if (paragraphs.isEmpty()) {
-            return result(true)
+            return result(false)
         }
 
         val xparagraphs = getLongParagraphs(doc, context)
