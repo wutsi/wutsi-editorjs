@@ -47,4 +47,12 @@ class EJSHtmlReaderTest {
         assertEquals("class Foo { }", doc.blocks[5].data.code)
 
     }
+
+    @Test
+    fun article() {
+        val html = loadResourceAsString("/article.html")
+        val reader = EJSHtmlReader(TagProvider())
+        val doc = reader.read(html)
+        assertEquals(32, doc.blocks.size)
+    }
 }

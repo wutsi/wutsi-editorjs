@@ -16,7 +16,7 @@ class Paragraph: Tag {
     override fun read(elt: Element) = Block(
             type = BlockType.paragraph,
             data = BlockData(
-                    text = elt.text()
+                    text = elt.html()
             )
     )
 }
