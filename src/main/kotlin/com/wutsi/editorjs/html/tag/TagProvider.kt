@@ -11,7 +11,8 @@ class TagProvider {
             BlockType.image to Image(),
             BlockType.list to List(),
             BlockType.paragraph to Paragraph(),
-            BlockType.quote to Quote()
+            BlockType.quote to Quote(),
+            BlockType.linkTool to Link()
     )
 
     private val tagsByName = mapOf(
@@ -29,7 +30,8 @@ class TagProvider {
             "ul" to List(),
             "ol" to List(),
             "p" to Paragraph(),
-            "blockquote" to Quote()
+            "blockquote" to Quote(),
+            "a" to Link()
     )
 
     fun all () = tagsByType.values

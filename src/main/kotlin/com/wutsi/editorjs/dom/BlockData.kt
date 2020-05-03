@@ -17,5 +17,8 @@ data class BlockData (
         var code: String = "",
         var alignment: String = "",
 
-        var file: File = File()
+        var file: File = File(),
+
+        var link: String = "",
+        var meta: Meta = Meta()
 )

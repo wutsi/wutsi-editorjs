@@ -6,7 +6,7 @@
 
     <groupId>com.wutsi</groupId>
     <artifactId>wutsi-editorjs</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
 
     <properties>
         <jacoco.threshold.line>0.90</jacoco.threshold.line>
@@ -14,6 +14,7 @@
 
         <!-- Library versions - in ALPHABETICAL ORDER-->
         <commons-io.version>2.6</commons-io.version>
+        <commons-text.version>1.4</commons-text.version>
         <jackson-kotlin.version>2.9.8</jackson-kotlin.version>
         <jsoup.version>1.13.1</jsoup.version>
         <junit.version>4.12</junit.version>
@@ -32,6 +33,11 @@
             <groupId>com.fasterxml.jackson.module</groupId>
             <artifactId>jackson-module-kotlin</artifactId>
             <version>${jackson-kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>${commons-text.version}</version>
         </dependency>
 
         <dependency>

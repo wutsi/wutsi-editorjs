@@ -6,6 +6,7 @@ import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.EJSDocument
 import com.wutsi.editorjs.dom.File
+import com.wutsi.editorjs.dom.Meta
 import com.wutsi.editorjs.html.tag.TagProvider
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -71,6 +72,21 @@ class EJSHtmlWriterTest {
                             type = BlockType.code,
                             data = BlockData(
                                     code = "class Foo { }"
+                            )
+                    ),
+                    Block(
+                            type = BlockType.linkTool,
+                            data = BlockData(
+                                    link = "https://www.afrohustler.com/3-personalities-we-should-express-henceforward-this-2020/",
+                                    meta = Meta(
+                                            title = "3 Personalities We Should Express Henceforward This 2020",
+                                            site_name = "www.afrohustler.com",
+                                            description = "As a businessperson and or employee, if you develop these 3 personalities, you will survive these trying times and come out stronger.",
+                                            image = File(
+                                                    url = "https://www.afrohustler.com/wp-content/uploads/2020/05/3-Personalities-1110x398.jpg"
+                                            )
+
+                                    )
                             )
                     )
             )

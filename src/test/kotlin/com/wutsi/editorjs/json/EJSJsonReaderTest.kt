@@ -15,7 +15,7 @@ class EJSJsonReaderTest {
         val reader = EJSJsonReader(ObjectMapper())
         val doc = reader.read(json)
 
-        assertEquals(6, doc.blocks.size)
+        assertEquals(7, doc.blocks.size)
 
         assertEquals(BlockType.header, doc.blocks[0].type)
         assertEquals(1, doc.blocks[0].data.level)
@@ -40,9 +40,14 @@ class EJSJsonReaderTest {
         assertTrue(doc.blocks[4].data.withBorder)
         assertTrue(doc.blocks[4].data.stretched)
 
-
         assertEquals(BlockType.code, doc.blocks[5].type)
         assertEquals("class Foo { }", doc.blocks[5].data.code)
 
+        assertEquals(BlockType.linkTool, doc.blocks[6].type)
+        assertEquals("https://www.afrohustler.com/3-personalities-we-should-express-henceforward-this-2020/", doc.blocks[6].data.link)
+        assertEquals("3 Personalities We Should Express Henceforward This 2020", doc.blocks[6].data.meta.title)
+        assertEquals("As a businessperson and or employee, if you develop these 3 personalities, you will survive these trying times and come out stronger.", doc.blocks[6].data.meta.description)
+        assertEquals("www.afrohustler.com", doc.blocks[6].data.meta.site_name)
+        assertEquals("https://www.afrohustler.com/wp-content/uploads/2020/05/3-Personalities-1110x398.jpg", doc.blocks[6].data.meta.image.url)
     }
 }

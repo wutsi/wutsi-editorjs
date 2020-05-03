@@ -7,5 +7,5 @@ import java.io.StringWriter
 interface Tag {
     fun write (block: Block, writer: StringWriter)
 
-    fun read(elt: Element): Block
+    fun read(elt: Element): Block?
 }

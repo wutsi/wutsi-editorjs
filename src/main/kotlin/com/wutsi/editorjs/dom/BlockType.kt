@@ -8,6 +8,7 @@ enum class BlockType {
     image,
     list,
     paragraph,
-    quote
+    quote,
+    linkTool
 }
 

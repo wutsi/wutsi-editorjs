@@ -19,10 +19,12 @@ class EJSHtmlReader(private val provider: TagProvider) {
         val tag = provider.get(elt)
         if (tag != null) {
             val block = tag.read(elt)
-            ejs.blocks.add(block)
-        } else {
-            elt.children().forEach { load(it, ejs) }
+            if (block != null) {
+                ejs.blocks.add(block)
+                return
+            }
         }
+        elt.children().forEach { load(it, ejs) }
     }
 
 }
