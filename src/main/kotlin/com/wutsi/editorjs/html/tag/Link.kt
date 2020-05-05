@@ -30,9 +30,12 @@ class Link: Tag {
             writer.write("<p class='description'>$description</p>")
             writer.write("<p class='site'>$siteName</p>")
           writer.write("</div>")
-          writer.write("<div class='image'>")
+
+        if (image.isNotEmpty()) {
+            writer.write("<div class='image'>")
             writer.write("<img src='$image' alt='$title'/>")
-          writer.write("</div>")
+            writer.write("</div>")
+        }
         writer.write("</div>")
         writer.write("</a>\n")
     }
