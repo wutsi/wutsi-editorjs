@@ -9,6 +9,7 @@ enum class BlockType {
     list,
     paragraph,
     quote,
-    linkTool
+    linkTool,
+    embed
 }
 

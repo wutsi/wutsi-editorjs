@@ -30,7 +30,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   }, {
     "type" : "paragraph",
@@ -61,7 +66,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   }, {
     "type" : "list",
@@ -92,7 +102,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   }, {
     "type" : "delimiter",
@@ -123,7 +138,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   }, {
     "type" : "image",
@@ -154,7 +174,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   }, {
     "type" : "code",
@@ -185,7 +210,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   }, {
     "type" : "linkTool",
@@ -216,7 +246,12 @@
           "width" : -1,
           "height" : -1
         }
-      }
+      },
+      "embed" : "",
+      "service" : "",
+      "width" : "",
+      "height" : "",
+      "source" : ""
     }
   } ]
 }

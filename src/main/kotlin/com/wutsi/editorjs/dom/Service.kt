@@ -1,6 +1,6 @@
 package com.wutsi.editorjs.dom
 
-data class BlockData (
+data class Service (
         var text: String = "",
 
         var level: Int = 1,

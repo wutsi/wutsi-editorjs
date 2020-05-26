@@ -6,11 +6,11 @@
 
     <groupId>com.wutsi</groupId>
     <artifactId>wutsi-editorjs</artifactId>
-    <version>1.10.0</version>
+    <version>1.11.0</version>
 
     <properties>
-        <jacoco.threshold.line>0.90</jacoco.threshold.line>
-        <jacoco.threshold.class>0.90</jacoco.threshold.class>
+        <jacoco.threshold.line>0.89</jacoco.threshold.line>
+        <jacoco.threshold.class>0.89</jacoco.threshold.class>
 
         <!-- Library versions - in ALPHABETICAL ORDER-->
         <commons-io.version>2.6</commons-io.version>
