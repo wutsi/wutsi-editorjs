@@ -59,6 +59,22 @@ class ExternalSourceRuleTest {
         Assert.assertEquals(100, result.score)
     }
 
+    @Test
+    fun validateLink() {
+        val doc = createDocumentWithLink("How are you...")
+        val result = rule.validate(doc, context)
+
+        Assert.assertEquals(100, result.score)
+    }
+
+    @Test
+    fun validateEmbed() {
+        val doc = createDocumentWithEmbed("How are you...")
+        val result = rule.validate(doc, context)
+
+        Assert.assertEquals(100, result.score)
+    }
+
 
     private fun createDocumentWithBullet(style: ListStyle, items: List<String>) = EJSDocument(
             blocks = arrayListOf(
@@ -87,6 +103,28 @@ class ExternalSourceRuleTest {
             blocks = arrayListOf(
                     Block(
                             type = BlockType.quote,
+                            data = BlockData(
+                                    text = text
+                            )
+                    )
+            )
+    )
+
+    private fun createDocumentWithLink(text: String) = EJSDocument(
+            blocks = arrayListOf(
+                    Block(
+                            type = BlockType.linkTool,
+                            data = BlockData(
+                                    text = text
+                            )
+                    )
+            )
+    )
+
+    private fun createDocumentWithEmbed(text: String) = EJSDocument(
+            blocks = arrayListOf(
+                    Block(
+                            type = BlockType.embed,
                             data = BlockData(
                                     text = text
                             )

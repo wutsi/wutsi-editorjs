@@ -21,9 +21,10 @@ class ExternalSourceRule: AbstractRule() {
             return hasLink(block.data.text)
         } else if (block.type == BlockType.list) {
             return hasLink(block.data.items.joinToString { "$it\n" })
-        } else {
-            return false
+        } else if (block.type == BlockType.linkTool || block.type == BlockType.embed) {
+            return true
         }
+        return false
     }
 
     private fun hasLink(html: String): Boolean {
