@@ -26,5 +26,7 @@ data class BlockData (
         var service: String = "",
         var width: String = "",
         var height: String = "",
-        var source: String = ""
+        var source: String = "",
+
+        var html: String = ""
 )

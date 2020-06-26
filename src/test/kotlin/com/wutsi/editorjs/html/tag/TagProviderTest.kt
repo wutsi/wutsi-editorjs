@@ -11,12 +11,13 @@ class TagProviderTest {
     @Test
     fun all() {
         val tags = provider.all()
-        assertEquals(9, tags.size)
+        assertEquals(10, tags.size)
     }
 
     @Test
     fun get() {
         assertTrue(provider.get(BlockType.code) is Code)
+        assertTrue(provider.get(BlockType.raw) is Code)
         assertTrue(provider.get(BlockType.delimiter) is Delimiter)
         assertTrue(provider.get(BlockType.header) is Header)
         assertTrue(provider.get(BlockType.image) is Image)

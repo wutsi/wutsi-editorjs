@@ -10,6 +10,7 @@ enum class BlockType {
     paragraph,
     quote,
     linkTool,
-    embed
+    embed,
+    raw
 }
 

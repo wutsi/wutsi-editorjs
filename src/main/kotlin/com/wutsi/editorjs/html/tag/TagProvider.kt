@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element
 class TagProvider {
     private val tagsByType = mapOf(
             BlockType.code to Code(),
+            BlockType.raw to Code(),
             BlockType.delimiter to Delimiter(),
             BlockType.header to Header(),
             BlockType.image to Image(),
@@ -17,7 +18,6 @@ class TagProvider {
     )
 
     private val tagsByName = mapOf(
-            "code" to Code(),
             "pre" to Code(),
             "hr" to Delimiter(),
             "h1" to Header(),
