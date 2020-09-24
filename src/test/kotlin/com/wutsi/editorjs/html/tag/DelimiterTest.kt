@@ -7,7 +7,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.io.StringWriter
 
-class DelimiterText {
+class DelimiterTest {
 
     val tag = Delimiter()
 

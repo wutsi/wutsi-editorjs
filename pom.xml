@@ -6,7 +6,7 @@
 
     <groupId>com.wutsi</groupId>
     <artifactId>wutsi-editorjs</artifactId>
-    <version>1.13.0</version>
+    <version>1.14.0</version>
 
     <properties>
         <jacoco.threshold.line>0.89</jacoco.threshold.line>
