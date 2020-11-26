@@ -2,6 +2,7 @@ package com.wutsi.editorjs.html.tag
 
 import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.html.tag.embed.EmbedTwitter
+import com.wutsi.editorjs.html.tag.embed.EmbedVimeo
 import com.wutsi.editorjs.html.tag.embed.EmbedYouTube
 import org.jsoup.nodes.Element
 import java.io.StringWriter
@@ -9,7 +10,8 @@ import java.io.StringWriter
 class Embed: Tag {
     val delegates: Map<String, Tag> = mapOf(
             "twitter" to EmbedTwitter(),
-            "youtube" to EmbedYouTube()
+            "youtube" to EmbedYouTube(),
+            "vimeo" to EmbedVimeo()
     )
 
     override fun write (block: Block, writer: StringWriter) {
