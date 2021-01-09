@@ -11,6 +11,7 @@ enum class BlockType {
     quote,
     linkTool,
     embed,
-    raw
+    raw,
+    AnyButton
 }
 
