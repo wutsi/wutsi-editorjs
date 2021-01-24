@@ -1,13 +1,11 @@
 package com.wutsi.editorjs.html.tag
 
 import com.wutsi.editorjs.dom.Block
-import com.wutsi.editorjs.dom.BlockData
-import com.wutsi.editorjs.dom.BlockType
-import com.wutsi.editorjs.dom.BlockType.code
 import org.apache.commons.text.StringEscapeUtils
 import org.jsoup.nodes.Element
 import java.io.StringWriter
 
+@Deprecated("use Button")
 class AnyButton: Tag {
     override fun write (block: Block, writer: StringWriter) {
         val link = block.data.link

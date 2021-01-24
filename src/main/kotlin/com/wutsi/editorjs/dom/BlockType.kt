@@ -12,6 +12,7 @@ enum class BlockType {
     linkTool,
     embed,
     raw,
+    button,
     AnyButton
 }
 

@@ -15,7 +15,8 @@ class TagProvider {
             BlockType.quote to Quote(),
             BlockType.linkTool to Link(),
             BlockType.embed to Embed(),
-            BlockType.AnyButton to AnyButton()
+            BlockType.button to Button(),
+            BlockType.AnyButton to Button()
     )
 
     private val tagsByName = mapOf(

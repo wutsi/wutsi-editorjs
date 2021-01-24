@@ -36,7 +36,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   }, {
     "type" : "paragraph",
@@ -73,7 +76,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   }, {
     "type" : "list",
@@ -110,7 +116,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   }, {
     "type" : "delimiter",
@@ -147,7 +156,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   }, {
     "type" : "image",
@@ -184,7 +196,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   }, {
     "type" : "code",
@@ -221,7 +236,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   }, {
     "type" : "linkTool",
@@ -258,7 +276,10 @@
       "width" : "",
       "height" : "",
       "source" : "",
-      "html" : ""
+      "html" : "",
+      "label" : "",
+      "centered" : true,
+      "large" : false
     }
   } ]
 }

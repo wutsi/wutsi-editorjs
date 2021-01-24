@@ -28,5 +28,9 @@ data class BlockData (
         var height: String = "",
         var source: String = "",
 
-        var html: String = ""
+        var html: String = "",
+
+        var label: String = "",
+        var centered: Boolean = true,
+        var large: Boolean = false
 )

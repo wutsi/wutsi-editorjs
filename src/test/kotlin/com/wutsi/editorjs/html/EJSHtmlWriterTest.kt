@@ -90,10 +90,13 @@ class EJSHtmlWriterTest {
                             )
                     ),
                     Block(
-                        type = BlockType.AnyButton,
+                        type = BlockType.button,
                         data = BlockData(
-                            link = "https://www.afrohustler.com/3-personalities-we-should-express-henceforward-this-2020/",
-                            text = "Read It"
+                            url = "https://www.afrohustler.com/3-personalities-we-should-express-henceforward-this-2020/",
+                            label = "Read It",
+                            centered = true,
+                            stretched = false,
+                            large = true
                         )
                     )
             )

@@ -11,7 +11,7 @@ class TagProviderTest {
     @Test
     fun all() {
         val tags = provider.all()
-        assertEquals(11, tags.size)
+        assertEquals(12, tags.size)
     }
 
     @Test
@@ -26,6 +26,7 @@ class TagProviderTest {
         assertTrue(provider.get(BlockType.quote) is Quote)
         assertTrue(provider.get(BlockType.linkTool) is Link)
         assertTrue(provider.get(BlockType.embed) is Embed)
-        assertTrue(provider.get(BlockType.AnyButton) is AnyButton)
+        assertTrue(provider.get(BlockType.button) is Button)
+        assertTrue(provider.get(BlockType.AnyButton) is Button)
     }
 }
