@@ -50,4 +50,20 @@ class EJSJsonReaderTest {
         assertEquals("www.afrohustler.com", doc.blocks[6].data.meta.site_name)
         assertEquals("https://www.afrohustler.com/wp-content/uploads/2020/05/3-Personalities-1110x398.jpg", doc.blocks[6].data.meta.image.url)
     }
+
+    @Test
+    fun readSummary() {
+        val json = loadResourceAsString("/reader.json")
+        val reader = EJSJsonReader(ObjectMapper())
+        val doc = reader.read(json, true)
+
+        assertEquals(2, doc.blocks.size)
+
+        assertEquals(BlockType.header, doc.blocks[0].type)
+        assertEquals(1, doc.blocks[0].data.level)
+        assertEquals("Editor.js", doc.blocks[0].data.text)
+
+        assertEquals(BlockType.paragraph, doc.blocks[1].type)
+        assertEquals("Hey. Meet the new Editor. On this page you can see it in action — try to edit this text", doc.blocks[1].data.text)
+    }
 }
