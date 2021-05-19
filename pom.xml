@@ -12,7 +12,7 @@
 
         <!-- Library versions - in ALPHABETICAL ORDER-->
         <commons-io.version>2.7</commons-io.version>
-        <commons-text.version>1.4</commons-text.version>
+        <commons-text.version>1.9</commons-text.version>
         <jackson-kotlin.version>2.12.3</jackson-kotlin.version>
         <jsoup.version>1.13.1</jsoup.version>
         <junit.version>4.13.2</junit.version>
