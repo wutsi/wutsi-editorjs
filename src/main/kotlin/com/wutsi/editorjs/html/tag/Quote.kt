@@ -4,6 +4,7 @@ import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
 import org.jsoup.nodes.Element
+import org.jsoup.select.Elements
 import java.io.StringWriter
 
 class Quote: Tag {
@@ -14,8 +15,8 @@ class Quote: Tag {
     }
 
     override fun read(elt: Element): Block {
-        val p = elt.children().filter { it.tagName().toLowerCase() == "p" }
-        val footer = elt.children().filter { it.tagName().toLowerCase() == "footer" }
+        val p = findElement(elt, "p")
+        val footer = findElement(elt, "footer")
         return Block(
                 type = BlockType.quote,
                 data = BlockData(
@@ -25,4 +26,6 @@ class Quote: Tag {
         )
     }
 
+    private fun findElement(elt: Element, tag: String) =
+        elt.children().filter { e -> e.tag().name.lowercase() == tag }
 }
