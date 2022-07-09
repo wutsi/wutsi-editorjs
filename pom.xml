@@ -4,7 +4,7 @@
 
     <groupId>com.wutsi</groupId>
     <artifactId>wutsi-editorjs</artifactId>
-    <version>1.20.2-SNAPSHOT</version>
+    <version>1.20.3-SNAPSHOT</version>
 
     <properties>
         <jacoco.threshold.line>0.89</jacoco.threshold.line>
