@@ -10,18 +10,18 @@ import java.io.StringWriter
 class Image: Tag {
     override fun write (block: Block, writer: StringWriter) {
         writer.write("<figure>")
-        exportImg(block, writer)
+        wirteImg(block, writer)
         exportCaption(block, writer)
         writer.write("</figure>\n")
     }
 
     override fun read(elt: Element): Block {
-        return if ("figure" == elt.tagName().toLowerCase()) readFigure(elt) else readImage(elt)
+        return if ("figure" == elt.tagName().lowercase()) readFigure(elt) else readImage(elt)
     }
 
     private fun readFigure(elt: Element): Block {
-        val img = elt.allElements.find { it.tagName().toLowerCase() == "img" }
-        val caption = elt.allElements.find { it.tagName().toLowerCase() == "figcaption" }
+        val img = elt.allElements.find { it.tagName().lowercase() == "img" }
+        val caption = elt.allElements.find { it.tagName().lowercase() == "figcaption" }
         if (img != null) {
             val block = readImage(img)
             block.data.caption = if (caption == null) "" else caption.text()
@@ -61,7 +61,7 @@ class Image: Tag {
     }
 
 
-    private fun exportImg(block: Block, writer: StringWriter) {
+    private fun wirteImg(block: Block, writer: StringWriter) {
         var url = block.data.file.url   // ImageTool
         if (url.isEmpty()){
             url = block.data.url    // Fallback to SimpleImageTool
