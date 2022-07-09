@@ -6,8 +6,8 @@ import com.wutsi.editorjs.readability.RuleResult
 
 class BulletRule: AbstractRule() {
     override fun validate(doc: EJSDocument, context: ReadabilityContext): RuleResult {
-        val doc = super.toHtml(doc, context)
-        val headers = collect(doc, arrayListOf("li"))
+        val html = super.toHtml(doc, context)
+        val headers = collect(html, arrayListOf("li"))
         return result(headers.isNotEmpty())
     }
 }

@@ -18,7 +18,7 @@ class List: Tag {
     override fun read(elt: Element) =Block (
             type = BlockType.list,
             data = BlockData(
-                    style = if ("ol" == elt.tagName().toLowerCase()) ListStyle.ordered else ListStyle.unordered,
+                    style = if ("ol" == elt.tagName().lowercase()) ListStyle.ordered else ListStyle.unordered,
                     items = elt.children().map { it.html() }
             )
     )

@@ -19,7 +19,7 @@ class ReadabilityCalculator (
 
     private fun computeScopre(ruleResults: List<RuleResult>): Int {
         val ruleCount = rules.size
-        val score = ruleResults.sumBy { it.score }
+        val score = ruleResults.sumOf { it.score }
         return score/ruleCount
     }
 }

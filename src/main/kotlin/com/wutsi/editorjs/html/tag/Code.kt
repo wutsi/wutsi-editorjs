@@ -18,23 +18,22 @@ class Code: Tag {
         }
     }
 
-    override fun read(elt: Element): Block? {
-        if (elt.hasClass("code")){
-            return Block(
+    override fun read(elt: Element): Block {
+        return if (elt.hasClass("code")){
+            Block(
                     type = BlockType.code,
                     data = BlockData(
                             code = elt.html()
                     )
             )
         } else {
-            return Block(
+            Block(
                     type = BlockType.raw,
                     data = BlockData(
                             html = elt.html()
                     )
             )
         }
-        return null
     }
 
 }

@@ -6,8 +6,8 @@ import com.wutsi.editorjs.readability.RuleResult
 
 class MinImageRule: AbstractRule() {
     override fun validate(doc: EJSDocument, context: ReadabilityContext): RuleResult {
-        val doc = super.toHtml(doc, context)
-        val headers = collect(doc, arrayListOf("img"))
+        val html = super.toHtml(doc, context)
+        val headers = collect(html, arrayListOf("img"))
         return result(headers.isNotEmpty())
     }
 }

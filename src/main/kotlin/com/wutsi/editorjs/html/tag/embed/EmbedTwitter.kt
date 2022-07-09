@@ -4,7 +4,7 @@ import com.wutsi.editorjs.dom.Block
 import com.wutsi.editorjs.dom.BlockData
 import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.html.tag.Tag
-import org.apache.commons.lang3.StringEscapeUtils
+import org.apache.commons.text.StringEscapeUtils
 import org.jsoup.nodes.Element
 import java.io.StringWriter
 import java.net.URL
