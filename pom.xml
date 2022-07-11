@@ -4,7 +4,7 @@
 
     <groupId>com.wutsi</groupId>
     <artifactId>wutsi-editorjs</artifactId>
-    <version>1.20.5-SNAPSHOT</version>
+    <version>1.20.5</version>
 
     <properties>
         <jacoco.threshold.line>0.89</jacoco.threshold.line>
@@ -82,7 +82,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/wutsi/wutsi-editorjs.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>wutsi-editorjs-1.20.5</tag>
     </scm>
     <distributionManagement>
         <repository>
