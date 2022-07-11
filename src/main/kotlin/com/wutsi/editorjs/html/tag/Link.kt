@@ -52,7 +52,7 @@ class Link: Tag {
             return null
         }
 
-        val url = elt.attr("href")
+        val url = elt.attr("abs:href")
         val title = elt.select(".meta h2").text()
         val description = elt.select(".meta p.description").text()
         val siteName = elt.select(".meta p.site").text()

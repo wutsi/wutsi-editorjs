@@ -10,7 +10,7 @@ import java.io.StringWriter
 class Image: Tag {
     override fun write (block: Block, writer: StringWriter) {
         writer.write("<figure>")
-        wirteImg(block, writer)
+        writeImg(block, writer)
         exportCaption(block, writer)
         writer.write("</figure>\n")
     }
@@ -61,7 +61,7 @@ class Image: Tag {
     }
 
 
-    private fun wirteImg(block: Block, writer: StringWriter) {
+    private fun writeImg(block: Block, writer: StringWriter) {
         var url = block.data.file.url   // ImageTool
         if (url.isEmpty()){
             url = block.data.url    // Fallback to SimpleImageTool
