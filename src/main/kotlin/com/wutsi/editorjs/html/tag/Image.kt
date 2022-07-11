@@ -11,12 +11,16 @@ class Image: Tag {
     override fun write (block: Block, writer: StringWriter) {
         writer.write("<figure>")
         writeImg(block, writer)
-        exportCaption(block, writer)
+        writeCaption(block, writer)
         writer.write("</figure>\n")
     }
 
-    override fun read(elt: Element): Block {
-        return if ("figure" == elt.tagName().lowercase()) readFigure(elt) else readImage(elt)
+    override fun read(elt: Element): Block? {
+        val bloc = if ("figure" == elt.tagName().lowercase()) readFigure(elt) else readImage(elt)
+        return if (bloc.data.file.url.isNullOrEmpty() && bloc.data.url.isNullOrEmpty())
+            null
+        else
+            bloc
     }
 
     private fun readFigure(elt: Element): Block {
@@ -30,7 +34,7 @@ class Image: Tag {
             return Block(
                     type = BlockType.image,
                     data = BlockData(
-                            caption = if (caption == null) "" else caption.text()
+                        caption = if (caption == null) "" else caption.text()
                     )
             )
         }
@@ -111,7 +115,7 @@ class Image: Tag {
         }
     }
 
-    private fun exportCaption(block: Block, writer: StringWriter) {
+    private fun writeCaption(block: Block, writer: StringWriter) {
         val caption = block.data.caption
         if (caption.isNotBlank()) {
             writer.write("<figcaption>$caption</figcaption>")

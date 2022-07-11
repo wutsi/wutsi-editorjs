@@ -6,12 +6,12 @@ import com.wutsi.editorjs.dom.BlockType
 import com.wutsi.editorjs.dom.File
 import org.jsoup.nodes.Element
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import java.io.StringWriter
 
 class ImageTest {
-
     val tag = Image()
 
     @Test
@@ -98,19 +98,28 @@ class ImageTest {
     }
 
     @Test
-    fun readIMG() {
+    fun readImage() {
         val elt = createIMGElement("http://www.google.com/1.png", "test", 111, 333)
         val block = tag.read(elt)
 
-        assertEquals(BlockType.image, block.type)
-        assertEquals("http://www.google.com/1.png", block.data.url)
-        assertEquals("http://www.google.com/1.png", block.data.file.url)
-        assertEquals(111, block.data.file.width)
-        assertEquals(333, block.data.file.height)
-        assertEquals("test", block.data.caption)
-        assertTrue(block.data.withBackground)
-        assertTrue(block.data.withBackground)
-        assertTrue(block.data.stretched)
+        assertEquals(BlockType.image, block?.type)
+        assertEquals("http://www.google.com/1.png", block?.data?.url)
+        assertEquals("http://www.google.com/1.png", block?.data?.file?.url)
+        assertEquals(111, block?.data?.file?.width)
+        assertEquals(333, block?.data?.file?.height)
+        assertEquals("test", block?.data?.caption)
+        assertEquals(true, block?.data?.withBackground)
+        assertEquals(true, block?.data?.withBackground)
+        assertEquals(true, block?.data?.stretched)
+    }
+
+
+    @Test
+    fun readImageNoURL() {
+        val elt = createIMGElement("", "test", 111, 333)
+        val block = tag.read(elt)
+
+        assertNull(block)
     }
 
     @Test
@@ -118,13 +127,21 @@ class ImageTest {
         val elt = createFigureElement("http://www.google.com/1.png", "test")
         val block = tag.read(elt)
 
-        assertEquals(BlockType.image, block.type)
-        assertEquals("http://www.google.com/1.png", block.data.url)
-        assertEquals("http://www.google.com/1.png", block.data.file.url)
-        assertEquals("test", block.data.caption)
-        assertTrue(block.data.withBackground)
-        assertTrue(block.data.withBackground)
-        assertTrue(block.data.stretched)
+        assertEquals(BlockType.image, block?.type)
+        assertEquals("http://www.google.com/1.png", block?.data?.url)
+        assertEquals("http://www.google.com/1.png", block?.data?.file?.url)
+        assertEquals("test", block?.data?.caption)
+        assertEquals(true, block?.data?.withBackground)
+        assertEquals(true, block?.data?.withBackground)
+        assertEquals(true, block?.data?.stretched)
+    }
+
+    @Test
+    fun readFigureNoUrl() {
+        val elt = createFigureElement("", "test")
+        val block = tag.read(elt)
+
+        assertNull(block)
     }
 
     private fun createBlock(
